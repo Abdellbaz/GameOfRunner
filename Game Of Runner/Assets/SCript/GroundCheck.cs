@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour {
-    public static bool Isground;
 
+    public static bool IsGround;
   
     private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("ground")) { Isground = true; }
-    }
+    {if (col.gameObject.CompareTag("ground")) { IsGround = true; }}
     private void OnCollisionExit2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("ground")) { Isground = false; }
-    }
+    {if (col.gameObject.CompareTag("ground")) { IsGround = false; }}
 }

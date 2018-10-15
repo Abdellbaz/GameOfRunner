@@ -13,6 +13,7 @@ public class PlatformGenerator : MonoBehaviour {
     private GameObject plat;
     // Use this for initialization
     void Start () {
+
         platformWidth = PlatformSize.GetComponent<Renderer>().bounds.size.x;
         PlatformList.Add(GameObject.Find("Platform")); 
 
@@ -22,12 +23,13 @@ public class PlatformGenerator : MonoBehaviour {
     void Update ()
     {
        
-        if (transform.position.x < generationPoint.position.x) {
-            transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween,transform.position.y,transform.position.z);
-           plat = Instantiate(Platform, transform.position, transform.rotation); PlatformList.Add(plat);}
+        if (transform.position.x < generationPoint.position.x)
+        {
+           transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween,transform.position.y,transform.position.z);
+           plat = Instantiate(Platform, transform.position, transform.rotation); PlatformList.Add(plat);
+        }
 
-           if (PlatformList.Count>3) { 
-             Destroy(PlatformList[0]); PlatformList.RemoveAt(0); }
+           if (PlatformList.Count>3) { Destroy(PlatformList[0]); PlatformList.RemoveAt(0); }
       
 
     }
